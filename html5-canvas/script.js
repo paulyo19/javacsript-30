@@ -4,12 +4,12 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-ctx.strokeStyle = "#FF0000";             // color
+ctx.strokeStyle = '#BADA55';             // color
 ctx.lineJoin = 'round';                   //when a line meets another line
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
-
 let isDrawing = false;
+let direction = true;
 let lastX = 0;
 let lastY = 0;
 let hue = 0;
@@ -20,15 +20,28 @@ function draw(e) {
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
-    ctx.lineTo(e.offestX, e.offsetY);
+    ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
-    lastX = e.offestX;
-    lastY = e.offsetY;
-}
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+    hue++;
+    
+    if (hue >= 360) {
+      hue = 0;
+    }
+    if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+      direction = !direction;
+    }
+    if(direction) {
+      ctx.lineWidth++;
+    } else {
+      ctx.lineWidth--;
+    }
+  }
+
 
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
-    [lastX, lastY] = [e.offestX, e.offsetY]
+    [lastX, lastY] = [e.offsetX, e.offsetY];
 });
 
 canvas.addEventListener('mousemove', draw)
