@@ -8,5 +8,10 @@ const skipButtons = player.querySelector('[data-skip]')
 const ranges = player.querySelector('.player__slider')
 
 // BUILD OUT FUNCTIONS
+function togglePlay() {
+    const method = video.paused ? 'play' : 'pause'
+    video [method]() 
+}
+
 
 // HOOK UP THE EVENT LISTNERS
