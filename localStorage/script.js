@@ -3,12 +3,26 @@ const itemsList = document.querySelector('.plates');
 const items = [];
 
 function addItem(e) {
-    e.preventDefault()
-    const text = (this.querySelector('[name-item')).value
+    e.preventDefault();
+    const text = (this.querySelector('[name=item')).value;
     const item = {
         text,
         done: false
-    }
+    };
+
+    items.push(item);
+    populateList(items, itemsList);
+    this.reset();
 }
 
-addItems.addEventListener('submit', addItem)
+function populateList(plates = [], platesList) {
+    platesList.innerHTML = plates.map((plate, i) => {
+        return `
+            <li>
+                <label for = "">${plate.text}</label>
+            </li>
+        `;
+    }).join('');
+}
+
+addItems.addEventListener('submit', addItem);
