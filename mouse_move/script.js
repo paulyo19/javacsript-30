@@ -13,7 +13,7 @@ function shadow(e){
     const xWalk = Math.round((x / width * walk) - (walk / 2))
     const yWalk = Math.round((y / height * walk) - (walk / 2))   //this means that the walk is 100 so 50 is as high is what we should go and -50 is how low we should go
 
-    console.log(xWalk, yWalk)
+    text.style.textShadow = `${xWalk}px ${yWalk}px 0 red`
 }
 
 hero.addEventListener('mousemove', shadow)
