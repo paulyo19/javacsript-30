@@ -10,10 +10,10 @@ function shadow(e){
         x = x + e.target.offsetLeft
         y = y + e.target.offsetTop
     }
-    const xWalk = (x / width * walk) - (walk / 2)
-    const yWalk = (y / height * walk) - (walk / 2)   //this means that the walk is 100 so 50 is as high is what we should go and -50 is how low we should go
+    const xWalk = Math.round((x / width * walk) - (walk / 2))
+    const yWalk = Math.round((y / height * walk) - (walk / 2))   //this means that the walk is 100 so 50 is as high is what we should go and -50 is how low we should go
 
-    console.log()
+    console.log(xWalk, yWalk)
 }
 
 hero.addEventListener('mousemove', shadow)
