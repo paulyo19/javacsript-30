@@ -7,6 +7,11 @@ const bands =
 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
 
+function strip(bandName) {
+    return bandName.replace(/^(a |the |an )/i, '').trim()   //the i at end of this code just makes the a..the..an case sensitve
+}
+
+//this is creating are list of bands array
 const sortedBands = bands.sort(function(a,b){
     if(a > b){
         return 1
@@ -14,3 +19,4 @@ const sortedBands = bands.sort(function(a,b){
         return -1
     }
 })
+console.log(sortedBands)
