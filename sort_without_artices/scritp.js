@@ -6,3 +6,11 @@ const bands =
 'Counterparts', 'Oh, Sleeper',
 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+
+const sortedBands = bands.sort(function(a,b){
+    if(a > b){
+        return 1
+    }else {
+        return -1
+    }
+})
