@@ -13,3 +13,5 @@ const speed = document.querySelector('.speed');
     bar.textContent = playbackRate.toFixed(2) + '×';
     video.playbackRate = playbackRate;
   }
+
+  speed.addEventListener('mousemove', handleMove);
