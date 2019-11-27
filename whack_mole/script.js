@@ -35,3 +35,12 @@ const holes = document.querySelectorAll('.hole');
     peep();
     setTimeout(() => timeUp = true, 10000)
   }
+
+  function bonk(e) {
+    if(!e.isTrusted) return; // cheater!
+    score++;
+    this.parentNode.classList.remove('up');
+    scoreBoard.textContent = score;
+  }
+  
+  moles.forEach(mole => mole.addEventListener('click', bonk));
